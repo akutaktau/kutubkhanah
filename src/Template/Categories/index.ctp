@@ -8,7 +8,11 @@
 </nav>
 <div class="categories index large-9 medium-8 columns content">
     <h3><?= __('Categories') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+    <div class="medium-3 right">
+		<?= $this->Html->link("<i class=\"fa fa-plus\"></i>&nbsp;".__('New Category'), ['action' => 'add'],['escape' => false,'class' => 'button']) ?>
+		
+	</div>
+	<table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th><?= $this->Paginator->sort('id') ?></th>
@@ -28,9 +32,9 @@
                 <td><?= h($category->created) ?></td>
                 <td><?= h($category->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $category->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $category->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
+                    <?= $this->Html->link("<i class=\"fa fa-sticky-note\"></i>&nbsp;", ['action' => 'view', $category->id],['escape' => false]) ?>
+                    <?= $this->Html->link("<i class=\"fa fa-pencil-square\"></i>&nbsp;", ['action' => 'edit', $category->id],['escape' => false]) ?>
+                    <?= $this->Form->postLink("<i class=\"fa fa-trash\"></i>&nbsp;", ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id),'escape' => false]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
