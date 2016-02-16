@@ -53,8 +53,10 @@ class CategoriesController extends AppController
     {
         $category = $this->Categories->newEntity();
         if ($this->request->is('post')) {
-            $category = $this->Categories->patchEntity($category, $this->request->data);
-            if ($this->Categories->save($category)) {
+            
+			$category = $this->Categories->patchEntity($category, $this->request->data);
+            pr($category);
+			if ($this->Categories->save($category)) {
                 $this->Flash->success(__('The category has been saved.'));
                 return $this->redirect(['action' => 'index']);
             } else {
@@ -62,8 +64,8 @@ class CategoriesController extends AppController
             }
         }
         $parentCategories = $this->Categories->ParentCategories->find('list', ['limit' => 200]);
-        $books = $this->Categories->Books->find('list', ['limit' => 200]);
-        $this->set(compact('category', 'parentCategories', 'books'));
+        
+        $this->set(compact('category', 'parentCategories'));
         $this->set('_serialize', ['category']);
     }
 
@@ -89,8 +91,8 @@ class CategoriesController extends AppController
             }
         }
         $parentCategories = $this->Categories->ParentCategories->find('list', ['limit' => 200]);
-        $books = $this->Categories->Books->find('list', ['limit' => 200]);
-        $this->set(compact('category', 'parentCategories', 'books'));
+        
+        $this->set(compact('category', 'parentCategories'));
         $this->set('_serialize', ['category']);
     }
 
