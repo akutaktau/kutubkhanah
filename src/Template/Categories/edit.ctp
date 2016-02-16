@@ -24,7 +24,6 @@
             echo $this->Form->input('description');
             echo $this->Form->input('created_by');
             echo $this->Form->input('modified_by');
-            echo $this->Form->input('books._ids', ['options' => $books]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
