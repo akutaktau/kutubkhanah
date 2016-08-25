@@ -16,12 +16,24 @@ class CategoriesController extends AppController
      *
      * @return \Cake\Network\Response|null
      */
-    public function index()
+    public function index($parent_id = null)
     {
         $this->paginate = [
             'contain' => ['ParentCategories']
         ];
-        $categories = $this->paginate($this->Categories);
+       
+		
+		if($parent_id == null) {
+			$query = $this->Categories->find('all')->where(['ParentCategories.parent_id IS NULL']);
+		}
+		else {
+			
+			$query = $this->Categories->find('all')->where(['Categories.parent_id' => $parent_id]);
+			echo $parent_id;
+		}	
+		
+		
+		$categories = $this->paginate($query);
 
         $this->set(compact('categories'));
         $this->set('_serialize', ['categories']);

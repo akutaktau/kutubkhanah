@@ -27,8 +27,8 @@
             <?php foreach ($categories as $category): ?>
             <tr>
                 <td><?= $this->Number->format($category->id) ?></td>
-                <td><?= $category->has('parent_category') ? $this->Html->link($category->parent_category->id, ['controller' => 'Categories', 'action' => 'view', $category->parent_category->id]) : '' ?></td>
-                <td><?= h($category->code) ?></td>
+                <td><?= $category->has('parent_category') ? $this->Html->link($category->parent_category->code, ['controller' => 'Categories', $category->parent_category->parent_id]) : '' ?></td>
+                <td><?= $this->Html->link($category->code, ['controller' => 'Categories', $category->id]) ?></td>
                 <td><?= h($category->created) ?></td>
                 <td><?= h($category->modified) ?></td>
                 <td class="actions">

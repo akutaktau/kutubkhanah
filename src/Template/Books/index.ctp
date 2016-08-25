@@ -12,6 +12,10 @@
 </nav>
 <div class="books index large-9 medium-8 columns content">
     <h3><?= __('Books') ?></h3>
+	<div class="medium-3 right">
+		<?= $this->Html->link("<i class=\"fa fa-plus\"></i>&nbsp;".__('New Book'), ['action' => 'add'],['escape' => false,'class' => 'button']) ?>
+		
+	</div>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
