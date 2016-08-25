@@ -37,7 +37,7 @@ class AuthorsBooksTable extends Table
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Authors', [
-            'foreignKey' => 'authors_id',
+            'foreignKey' => 'author_id',
             'joinType' => 'INNER'
         ]);
     }
@@ -67,7 +67,7 @@ class AuthorsBooksTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['book_id'], 'Books'));
-        $rules->add($rules->existsIn(['authors_id'], 'Authors'));
+        $rules->add($rules->existsIn(['author_id'], 'Authors'));
         return $rules;
     }
 }
