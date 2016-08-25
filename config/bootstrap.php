@@ -211,3 +211,8 @@ Type::build('datetime')
     ->useImmutable()
     ->useLocaleParser();
 
+/**
+ * Load Migrations plugin to ease pain in the ass.
+ * 
+ */
+Plugin::load('Migrations');
