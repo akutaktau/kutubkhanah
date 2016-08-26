@@ -12,8 +12,8 @@
         <legend><?= __('Add Author') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('created_by');
-            echo $this->Form->input('modified_by');
+            //echo $this->Form->input('created_by');
+            //echo $this->Form->input('modified_by');
             echo $this->Form->input('books._ids', ['options' => $books]);
         ?>
     </fieldset>

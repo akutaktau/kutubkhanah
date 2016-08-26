@@ -1,15 +1,4 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Book'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Authors'), ['controller' => 'Authors', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Author'), ['controller' => 'Authors', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Publishers'), ['controller' => 'Publishers', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Publisher'), ['controller' => 'Publishers', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
+
 <div class="books index large-9 medium-8 columns content">
     <h3><?= __('Books') ?></h3>
 	<div class="medium-3 right">
@@ -40,9 +29,10 @@
                 <td><?= h($book->created) ?></td>
                 <td><?= h($book->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $book->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $book->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $book->id], ['confirm' => __('Are you sure you want to delete # {0}?', $book->id)]) ?>
+                    <?= $this->Html->link("<i class=\"fa fa-sticky-note\"></i>&nbsp;", ['action' => 'view', $book->id],['escape' => false]) ?>
+                    <?= $this->Html->link("<i class=\"fa fa-pencil-square\"></i>&nbsp;", ['action' => 'edit', $book->id],['escape' => false]) ?>
+                    <?= $this->Form->postLink("<i class=\"fa fa-trash\"></i>&nbsp;", ['action' => 'delete', $book->id], ['confirm' => __('Are you sure you want to delete # {0}?', $book->id),'escape' => false]) ?>
+					
                 </td>
             </tr>
             <?php endforeach; ?>
